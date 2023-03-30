@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class SegTreeLazyRangeSet
+class SegTreeLazyRangeAdd
 {
 private:
     vector<int> tree, lazy;
@@ -58,7 +58,7 @@ private:
     }
 
 public:
-    SegTreeLazyRangeSet(vector<int> v) {
+    SegTreeLazyRangeAdd(vector<int> v) {
         n = v.size();
         n4 = n * 4;
         tree.resize(n4, 0);
@@ -84,7 +84,7 @@ public:
 
 int main() {
     vector<int> nums = {10, 11, 12, 13, 14};
-    SegTreeLazyRangeSet seg_tree(nums);
+    SegTreeLazyRangeAdd seg_tree(nums);
     printf("----> show seg tree ---->\n");
     seg_tree.show(1);
     seg_tree.rangeAdd(2, 4, 5);
@@ -92,6 +92,6 @@ int main() {
     seg_tree.show(1);
     // 注意 seg_tree 中 tree 的 p 是从下标 1 开始的
     // 但是 nums 中的区域 [l, r] 的下标还是从 0 开始
-    cout << seg_tree.rangeSum(0, 4) << endl;
+    cout << seg_tree.rangeSum(2, 4) << endl;
     
 }
