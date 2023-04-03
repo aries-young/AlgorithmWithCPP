@@ -5,12 +5,15 @@ using namespace std;
 
 struct TreeNode {
     int val;
+    // int leftId, rightId;
     TreeNode* left;
     TreeNode* right;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int _val) : val(_val), left(nullptr), right(nullptr) {}
 };
 
+
+// 建树
 TreeNode* buildBinaryTree(vector<vector<int>> node_infos, vector<TreeNode>& nodes, int rootId) {
     for (int i = 0; i < node_infos.size(); i++) {
         int val, leftId, rightId;
@@ -27,6 +30,15 @@ TreeNode* buildBinaryTree(vector<vector<int>> node_infos, vector<TreeNode>& node
     }
     TreeNode* root = &nodes[rootId];
     return root;
+}
+
+// 计算树高
+int Depth (TreeNode* root) {
+    int l_depth, r_depth;
+    if (root == nullptr) return 0;
+    l_depth = Depth(root->left);
+    r_depth = Depth(root->right);
+    return max(l_depth, r_depth) + 1;
 }
 
 int main() {
