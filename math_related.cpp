@@ -5,14 +5,13 @@ int gcd (int a, int b) {
     return b ? gcd(b, a % b) : a;
 }
 
-const int maxn = 1000;
-vector<int> isprimes(maxn, 1); // i 是否是素数
-
+vector<int> isprimes; // i 是否是素数
 vector<int> primes; // 素数
 // 埃氏筛选求素数 1 ~ n (包括 n) 的素数
 // 时间复杂度 O(nloglogn)
 int Eratosthenes(int n) {
     int cnt = 0;
+    isprimes.resize(n + 1, 1);
     isprimes[0] = isprimes[1] = 0;
     for (int i = 2; i <= n; i++) 
         if(isprimes[i]) {
@@ -51,8 +50,8 @@ int linearSieve(int n) {
 
 int main() {
     int n = 15;
-    cout << linearSieve(n) << endl;
-    for (auto m: minFators) cout << m <<  " ";
+    cout << Eratosthenes(n) << endl;
+    for (auto i: isprimes) cout << i <<  " ";
     cout << endl;
     for (auto p: primes) cout << p <<  " ";
     cout << endl;
