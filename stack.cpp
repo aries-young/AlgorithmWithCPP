@@ -1,6 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+// 判断出栈序列是否合法
+bool outStkIsLegal(const string& input, const string& output) {
+    queue<char> q;
+    stack<char> stk;
+
+    for (auto ch: input) q.push(ch);
+
+    for (int i = 0; i < (int)output.size(); i++) {
+        auto cur = output[i];
+        if (!stk.empty() && stk.top() == cur) {
+            stk.pop();
+        }
+        else {
+            while (!q.empty() && q.front() != cur) {
+                auto tmp = q.front();
+                q.pop();
+                stk.push(tmp);
+            }
+            if (q.empty()) return false;
+            q.pop();
+        }
+    }
+    return true;
+}
+
+
 int main() {
     int num = 1;
     // vector 模拟栈
