@@ -1,6 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// <algorithm> std::sort 自定义 comp
+// bool comp (int i, int j) { return i < j}
+// comp return true:  第一个参数小于第二个参数，
+//                    sort 排序时第一个参数排在第二参数之前
+// comp return false: 第一个参数大于第二个参数，
+//                    sort 排序时第一个参数排在第二个参数之后
+
 // border用来记录上一次最后交换的那个位置
 // 下一轮交换只需要进行到这个位置即可
 void bubble_sort(vector<int>& nums) {

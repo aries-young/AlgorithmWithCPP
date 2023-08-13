@@ -1,3 +1,5 @@
+// 查分数组
+
 #include <bits/stdc++.h>
 using namespace std;
 

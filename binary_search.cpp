@@ -1,3 +1,5 @@
+// 二分查找
+
 #include <bits/stdc++.h>
 using namespace std;
 
